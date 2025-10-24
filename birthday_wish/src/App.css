@@ -1,0 +1,561 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#root {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow: hidden;
+  line-height: 5px;
+  background-image: url(../public/img/top-view-beautiful-roses-arrangement.jpg);
+  background-size: cover;
+}
+
+
+.gift-lid {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+}
+
+.lid-top {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: #ff4d6d;
+  transform: translateZ(40px);
+  background: linear-gradient(135deg, #ff4d6d 60%, #ffd700 100%);
+  box-shadow: 0 0 20px 5px #ffd70044, 0 0 40px 10px #fffbe622;
+}
+
+.lid-top::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(120deg, transparent 60%, #fffbe6 100%);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.lid-side {
+  position: absolute;
+  background: #ff758f;
+  height: 40px;
+}
+
+.lid-side-front, .lid-side-back {
+  width: 200px;
+  transform: rotateX(-90deg);
+}
+
+.lid-side-left, .lid-side-right {
+  width: 40px;
+  transform: rotateY(90deg);
+}
+
+.gift-base {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  transform-style: preserve-3d;
+}
+
+.base-side {
+  position: absolute;
+  background: #ff758f;
+  height: 180px;
+}
+
+.base-side-front, .base-side-back {
+  width: 180px;
+  transform: rotateX(-90deg) translateZ(90px);
+}
+
+.base-side-left, .base-side-right {
+  width: 180px;
+  transform: rotateY(90deg) translateZ(90px);
+}
+
+.base-bottom {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: #ff4d6d;
+  transform: translateZ(-180px);
+}
+
+.gift-ribbon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.ribbon-vertical, .ribbon-horizontal {
+  position: absolute;
+  background: #fff;
+  background: linear-gradient(90deg, #fff, #ffd700 60%, #fff 100%);
+  box-shadow: 0 0 10px #ffd70088;
+}
+
+.ribbon-vertical {
+  width: 20px;
+  height: 200px;
+  left: 90px;
+}
+
+.ribbon-horizontal {
+  width: 200px;
+  height: 20px;
+  top: 90px;
+}
+
+.bow {
+  position: absolute;
+  top: -20px;
+  left: 70px;
+  width: 60px;
+  height: 60px;
+  transform-style: preserve-3d;
+}
+
+.birthday-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* show background image with a subtle dark gradient overlay for readability */
+  background: linear-gradient(135deg, rgba(26,26,46,0.55), rgba(22,33,62,0.55)), url('/img/top-view-beautiful-roses-arrangement.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+}
+
+.gift-box-container {
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
+
+.gift-box {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s ease;
+}
+.bow-left, .bow-right {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translateZ(10px);
+  background: radial-gradient(circle, #ffd700 60%, #fff 100%);
+  box-shadow: 0 0 10px #ffd70088, 0 0 20px #fffbe644;
+}
+
+.bow-left {
+  left: 0;
+}
+
+.bow-right {
+  right: 0;
+}
+
+.bow-center {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  left: 20px;
+  top: 5px;
+  transform: translateZ(15px);
+  border: 2px solid #fffbe6;
+}
+
+.gift-shadow {
+  position: absolute;
+  width: 200px;
+  height: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  bottom: -30px;
+  border-radius: 50%;
+  filter: blur(5px);
+}
+
+.click-message {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: -60px;
+  color: #fff;
+  font-size: 1.2rem;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Celebration Container Styles */
+.celebration-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 1s ease;
+}
+
+.celebration-container.show {
+  opacity: 1;
+  transform: scale(1);
+}
+.birth{
+  display: flex;
+
+}
+
+.birthday-message {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 1rem;
+  max-width: 900px;
+  height: 90vh;
+  width: 95%;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.birthday-title {
+  color: #fd1d1d;
+  font-size: 3rem;
+  margin-bottom: 2.5rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  animation: glow 2s ease-in-out infinite alternate;
+  line-height: 1.3;
+}
+
+.message {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.message-line {
+  color: #270836;
+  font-size: 2rem;
+  line-height: 1.8;
+  margin: 0.7rem 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: reveal 0.5s ease forwards;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-family:'Brush Script MT', cursive;
+}
+
+.message-line.special-wish {
+  font-size: 1.8rem;
+  color: #ffd700;
+  margin-top: 1rem;
+}
+
+.message-line.final-wish {
+  font-size: 1.9rem;
+  color: #5021f8;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.message-line:nth-child(1) { animation-delay: 0.2s; }
+.message-line:nth-child(2) { animation-delay: 0.4s; }
+.message-line:nth-child(3) { animation-delay: 0.6s; }
+.message-line:nth-child(4) { animation-delay: 0.8s; }
+.message-line:nth-child(5) { animation-delay: 1s; }
+.message-line:nth-child(6) { animation-delay: 1.2s; }
+.message-line:nth-child(7) { animation-delay: 1.4s; }
+.message-line:nth-child(8) { animation-delay: 1.6s; }
+.message-line:nth-child(9) { animation-delay: 1.8s; }
+
+/* Balloon*/
+.balloon {
+  position: absolute;
+  width: 40px;
+  height: 50px;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateY(100vh);
+  animation: balloon-rise 4s ease-out forwards;
+}
+
+.balloon::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.5);
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.balloon-1 { background: #FF69B4; left: 10%; animation-delay: var(--delay); }
+.balloon-2 { background: #87CEEB; left: 25%; animation-delay: var(--delay); }
+.balloon-3 { background: #98FB98; left: 40%; animation-delay: var(--delay); }
+.balloon-4 { background: #DDA0DD; left: 55%; animation-delay: var(--delay); }
+.balloon-5 { background: #F0E68C; left: 70%; animation-delay: var(--delay); }
+.balloon-6 { background: #FF7F50; left: 85%; animation-delay: var(--delay); }
+.balloon-7 { background: #00CED1; left: 15%; animation-delay: var(--delay); }
+.balloon-8 { background: #FF1493; left: 75%; animation-delay: var(--delay); }
+
+/* Ribbon Burst */
+.ribbon-burst {
+  position: absolute;
+  width: 4px;
+  height: 100px;
+  background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+  transform-origin: bottom;
+  opacity: 0;
+  animation: ribbon-burst 1s ease-out forwards;
+  transform: rotate(var(--angle));
+  animation-delay: var(--delay);
+}
+
+/* Falling photos removed */
+
+/* Confetti */
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: -20px;
+  left: var(--position);
+  transform: rotate(var(--rotation));
+  animation: confetti 5s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+.confetti-piece:nth-child(4n) { background: #ff6b6b; }
+.confetti-piece:nth-child(4n+1) { background: #ffd93d; }
+.confetti-piece:nth-child(4n+2) { background: #6c5ce7; }
+.confetti-piece:nth-child(4n+3) { background: #a8e6cf; }
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+  to {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                 0 0 30px rgba(255, 255, 255, 0.6),
+                 0 0 40px rgba(255, 255, 255, 0.4);
+  }
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes balloon-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-100vh) rotate(360deg);
+  }
+}
+
+@keyframes ribbon-burst {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--angle)) scale(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--angle)) scale(2);
+  }
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(0) rotate(var(--rotation));
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(calc(var(--rotation) + 360deg));
+    opacity: 0;
+  }
+}
+
+/* Photo shower (small image tiles falling behind the message) */
+.photo-shower {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5; /* behind .birthday-message which is z-index:10 */
+  overflow: hidden;
+}
+
+.photo-piece {
+  position: absolute;
+  left: var(--left, 50%);
+  top: -10vh;
+  width: var(--size, 48px);
+  height: var(--size, 48px);
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transform: translateY(-5vh) rotate(var(--rot, 0deg));
+  opacity: 0;
+  animation: photo-fall var(--dur, 3.5s) linear forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes photo-fall {
+  0% {
+    opacity: 0;
+    transform: translateY(-20vh) rotate(var(--rot));
+  }
+  20% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(10vh) rotate(calc(var(--rot) + 10deg));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(110vh) rotate(calc(var(--rot) + 20deg));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-piece { animation: none; opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 900px) {
+  .birth {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .birthday-message {
+    border-radius: 0 0 20px 20px;
+    height: auto;
+    min-height: 40vh;
+    max-width: 95vw;
+    padding: 1rem 0.5rem;
+  }
+  .birthday-title {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+  }
+  .message-line {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .birthday-container {
+    padding: 0.5rem;
+  }
+  .gift-box {
+    width: 120px;
+    height: 120px;
+  }
+  .gift-lid, .lid-top {
+    width: 120px;
+    height: 120px;
+  }
+  .lid-side-front, .lid-side-back {
+    width: 120px;
+  }
+  .lid-side-left, .lid-side-right {
+    width: 24px;
+  }
+  .gift-base {
+    width: 100px;
+    height: 100px;
+  }
+  .base-side-front, .base-side-back, .base-side-left, .base-side-right {
+    width: 100px;
+  }
+  .base-bottom {
+    width: 100px;
+    height: 100px;
+  }
+  .ribbon-vertical {
+    width: 12px;
+    height: 120px;
+    left: 54px;
+  }
+  .ribbon-horizontal {
+    width: 120px;
+    height: 12px;
+    top: 54px;
+  }
+  .bow {
+    top: -10px;
+    left: 36px;
+    width: 36px;
+    height: 36px;
+  }
+  .bow-left, .bow-right {
+    width: 18px;
+    height: 18px;
+  }
+  .bow-center {
+    width: 12px;
+    height: 12px;
+    left: 12px;
+    top: 2px;
+  }
+  .gift-shadow {
+    width: 120px;
+    height: 12px;
+    bottom: -18px;
+  }
+  .click-message {
+    font-size: 1rem;
+    bottom: -36px;
+  }
+
+  .birthday-message {
+    min-height: 30vh;
+    max-width: 98vw;
+    padding: 0.5rem 0.2rem;
+  }
+  .birthday-title {
+    font-size: 2rem;
+    margin-bottom: 0.7rem;
+  }
+  .message-line {
+    font-size: 1.4rem;
+    margin: 0.8rem 0;
+  }
+}

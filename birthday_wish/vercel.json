@@ -1,4 +1,0 @@
-{
-  "buildCommand": "cd birthday_wish && npm install && npm run build",
-  "outputDirectory": "birthday_wish/dist"
-}
